@@ -1,0 +1,13 @@
+@import url(../../vendor/normalize.css);
+@import url(../../vendor/fonts-backend/fonts.css);
+
+/* * {
+  border: 1px solid red;
+  box-sizing: border-box;
+} */
+
+.App {
+  box-sizing: border-box;
+  min-width: 320px;
+}
+

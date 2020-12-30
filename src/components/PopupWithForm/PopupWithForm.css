@@ -1,0 +1,75 @@
+.PopupWithForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.PopupWithForm__label {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2F71E5;
+  margin-top: 0;
+  margin-bottom: 9px;
+}
+
+.PopupWithForm__label:first-child {
+  margin-top: 22px;
+}
+
+.PopupWithForm__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  height: 24px;
+  margin-bottom: 31px;
+}
+
+.PopupWithForm__input::placeholder {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0, 0, 0, .2);
+}
+
+.PopupWithForm__input:last-child {
+  margin-bottom: 0;
+}
+
+.PopupWithForm__button {
+  height: 64px;
+  border-radius: 100px;
+  box-sizing: border-box;
+  border: none;
+  color: #FFF;
+  background-color: #2F71E5;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.PopupWithForm__button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.PopupWithForm__button_disabled {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}
+
+.PopupWithForm__question {
+  margin: 0;
+  text-align: center;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.PopupWithForm__question-button {
+  color: #2F71E5;
+  text-decoration: none;
+}

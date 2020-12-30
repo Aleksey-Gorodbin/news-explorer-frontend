@@ -1,0 +1,49 @@
+.PopupMenu {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  position: fixed;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.PopupMenu_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.PopupMenu__container {
+  background-color: #1A1B22;
+  width: 100vw;
+  max-height: 286px;
+}
+
+.PopupMenu__header {
+  display: flex;
+  width: calc(100% - 32px);
+  margin: 16px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PopupMenu__button-close {
+  width: 30px;
+  height: 30px;
+  background-image: url(../../images/button-close.svg);
+  background-size: cover;
+  background-position: center center;
+  border: none;
+  background-color: transparent;
+}
+
+.PopupMenu__line {
+  height: 1px;
+  background-color: #C4C4C4;
+}
