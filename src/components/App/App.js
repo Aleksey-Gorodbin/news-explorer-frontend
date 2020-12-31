@@ -48,7 +48,7 @@ function App() {
             openPopup={openLogin}
             clickBurger={openNav}
           />
-          <Main isUser={false} />
+          <Main isUser={true} />
         </Route>
         <Route exact path="/saved-news">
           <SavedNewsHeader background={false} clickBurger={openNav} />
@@ -78,7 +78,7 @@ function App() {
           <input
             className="PopupWithForm__input"
             placeholder="Введите свое имя"
-            type="name"
+            type="text"
           ></input>
           <button className="PopupWithForm__button">Зарегистрироваться</button>
           <div className="PopupWithForm__string">
