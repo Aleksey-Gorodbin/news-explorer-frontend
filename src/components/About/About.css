@@ -1,0 +1,86 @@
+.About {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1440px;
+  align-items: center;
+}
+
+.About__avatar {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.About__info {
+  margin-left: 56px;
+  max-width: 600px;
+}
+
+.About__title {
+  font-family: 'Robotoslab';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  margin: 0 0 24px;
+}
+
+.About__description {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1440px) {
+  .About {
+    width: 86vw;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .About__avatar {
+    width: 232px;
+    height: 232px;
+    margin: 61px 0;
+  }
+
+  .About__info {
+    margin-left: 32px;
+    max-width: 424px;
+  }
+
+  .About__title {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .About {
+    width: 90vw;
+    flex-direction: column;
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+
+  .About__avatar {
+    width: 272px;
+    height: 272px;
+    border-radius: 50%;
+    margin: 0;
+  }
+  
+  .About__info {
+    margin-top: 24px;
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .About__title {
+    margin: 0 0 16px;
+  }
+}

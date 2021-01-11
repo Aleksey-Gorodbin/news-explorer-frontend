@@ -1,0 +1,133 @@
+.Navigation {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.Navigation__burger {
+  height: 8px;
+  box-sizing: border-box;
+  width: 16px;
+  border: none;
+  border-top: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  background-color: transparent;
+  display: none;
+}
+
+.Navigation__burger_articles {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.Navigation__link {
+  text-decoration: none;
+  color: #FFF;
+  padding-bottom: 24px;
+  margin-right: 32px;
+}
+
+.Navigation__link_articles {
+  color: #000;
+}
+
+.Navigation__link_articles:nth-child(2) {
+  border-bottom: 3px solid #000;
+}
+
+.Navigation__link_border {
+  border-bottom: 3px solid #FFF;
+}
+
+.Navigation__button {
+  border: 1px solid #FFF;
+  color: #FFF;
+  border-radius: 100px;
+  height: 48px;
+  width: 178px;
+  background-color: transparent;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.Navigation__button_articles {
+  color: #000;
+  border: 1px solid #000;
+}
+
+.Navigation__button:hover {
+  cursor: pointer;
+}
+
+.Navigation__icon {
+  background-image: url('../../images/nav-icon.svg');
+  background-size: cover;
+  width: 17px;
+  height: 16px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.Navigation__icon_articles {
+  background-image: url('../../images/nav-icon-black.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .Navigation {
+    font-size: 16px;
+    display: none;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+  }
+
+  .Navigation_active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Navigation__burger {
+    display: block;
+  }
+
+  .Navigation__burger_active {
+    display: none;
+  }
+  
+  .Navigation__link {
+    margin-right: 0;
+    margin-top: 32px;
+    padding-bottom: 0;
+    font-size: 18px;
+  }
+
+  .Navigation__link_articles {
+    color: #FFF;
+  }
+
+  .Navigation__link_articles:nth-child(2) {
+    border: none;
+  }
+
+  .Navigation__link_border {
+    border: none;
+  }
+
+  .Navigation__button {
+    font-size: 18px;
+    height: 56px;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .Navigation__button_articles {
+    color: #FFF;
+    border: 1px solid #FFF;
+  }
+
+  .Navigation__icon_articles {
+    background-image: url('../../images/nav-icon.svg');
+  }
+}

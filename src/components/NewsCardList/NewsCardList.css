@@ -1,0 +1,145 @@
+.NewsCardList {
+  background-color: #F5F6F7;
+}
+
+.NewsCardList__container {
+  margin: 0 auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+}
+
+.NewsCardList_empty {
+  padding-top: 86px;
+  padding-bottom: 80px;
+}
+
+.NewsCardList__title {
+  margin-top: 80px;
+  margin-bottom: 64px;
+  font-family: 'Robotoslab';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.NewsCardList__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 16px;
+  margin: auto;
+}
+
+.NewsCardList__button {
+  height: 64px;
+  width: 288px;
+  font-family: 'Robotoslab';
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #FFF;
+  border-radius: 80px;
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 64px auto 80px;
+}
+
+.NewsCardList__button:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.NewsCardList__searching-title {
+  font-family: 'Robotoslab';
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.NewsCardList__searching-text {
+  max-width: 356px;
+  margin: 0 auto;
+  text-align: center;
+  color: #B6BCBF;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 1440px) {
+  .NewsCardList__container {
+    width: 86vw;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .NewsCardList__grid {
+    grid-template-columns: repeat(2, 400px);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .NewsCardList__title {
+    margin-top: 40px;
+    margin-bottom: 32px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .NewsCardList__grid {
+    grid-template-columns: repeat(3, 224px);
+    gap: 8px;
+  }
+
+  .NewsCardList_empty {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .NewsCardList__button {
+    height: 56px;
+    width: 240px;
+    border-radius: 80px;
+    margin: 22px auto 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .NewsCardList__grid {
+    grid-template-columns: repeat(2, 224px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .NewsCardList__container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .NewsCardList_empty {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .NewsCardList__title {
+    margin-top: 30px;
+    margin-bottom: 34px;
+    font-size: 40px;
+    line-height: 46px;
+  }
+  
+  .NewsCardList__grid {
+    grid-template-columns: 288px;
+  }
+  
+  .NewsCardList__button {
+    height: 56px;
+    width: 100%;
+    margin: 15px auto 32px;
+  }
+}
