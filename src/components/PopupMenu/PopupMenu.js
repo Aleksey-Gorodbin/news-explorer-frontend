@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../Navigation/Navigation";
 import logo from "../../images/logo.svg";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import "./PopupMenu.css";
 
-function PopupMenu({ background, isUser, openPopup, isOpen, isClose }) {
+function PopupMenu({ background, isUser, openPopup, isOpen, isClose, leaveProfile }) {
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <div className={`PopupMenu ${
       isOpen ? "PopupMenu_opened" : ""
@@ -17,7 +20,7 @@ function PopupMenu({ background, isUser, openPopup, isOpen, isClose }) {
           <button className="PopupMenu__button-close" onClick={isClose}/>
         </header>
         <div className='PopupMenu__line'/>
-        <Navigation background={background} isBurger={true}>
+        <Navigation background={background} isBurger={true} closePopup={isClose}>
           {isUser ? (
             <>
               <Link
@@ -25,6 +28,7 @@ function PopupMenu({ background, isUser, openPopup, isOpen, isClose }) {
                 className={`Navigation__link ${
                   background ? "" : "Navigation__link_articles"
                 }`}
+                onClick={isClose}
               >
                 Сохранённые статьи
               </Link>
@@ -32,8 +36,9 @@ function PopupMenu({ background, isUser, openPopup, isOpen, isClose }) {
                 className={`Navigation__button ${
                   background ? "" : "Navigation__button_articles"
                 }`}
+                onClick={leaveProfile}
               >
-                Автор{" "}
+                {currentUser.name}
                 <span
                   className={`Navigation__icon ${
                     background ? "" : "Navigation__icon_articles"

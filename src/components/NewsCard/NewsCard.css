@@ -47,12 +47,7 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.5s, opacity 0.5s;
-}
-
-.NewsCard__warning_visible {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s, opacity 0.5s;
+  order: 1;
 }
 
 .NewsCard__button {
@@ -65,11 +60,18 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px 19px;
+  order: 2;
 }
 
 .NewsCard__button:hover {
   background-image: url('../../images/save-icon-black.svg');
   cursor: pointer;
+}
+
+.NewsCard__button:hover + .NewsCard__warning_visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s;
 }
 
 .NewsCard__button_saving {
@@ -87,7 +89,8 @@
 
 .NewsCard__image {
   width: 400px;
-  height: 272px;
+  min-height: 272px;
+  max-height: 272px;
   background-size: cover;
 }
 
@@ -110,6 +113,9 @@
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
+  height: 60px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   margin: 12px 0 16px;
 }
 
@@ -133,6 +139,7 @@
   line-height: 20px;
   letter-spacing: .4;
   text-decoration: none;
+  margin: 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -155,7 +162,8 @@
 
   .NewsCard__image {
     width: 224px;
-    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
   }
 
   .NewsCard__info {
@@ -166,11 +174,16 @@
     font-size: 22px;
     line-height: 24px;
     margin: 12px 0 10px;
+    height: 75px;
   }
 
   .NewsCard__description {
     margin: 0 0 18px;
     height: 88px;
+  }
+
+  .NewsCard__warning {
+    width: 160px;
   }
 }
 
@@ -193,7 +206,8 @@
   
   .NewsCard__image {
     width: 288px;
-    height: 196px;
+    min-height: 196px;
+    max-height: 196px;
   }
   
   .NewsCard__title {

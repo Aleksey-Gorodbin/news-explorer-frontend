@@ -3,49 +3,29 @@ import NewsCard from "../NewsCard/NewsCard";
 
 import "./SavedNews.css";
 
-function SavedNews({ isVisible }) {
+function SavedNews({ cards, deleteCard }) {
   return (
     <section className="SavedNews">
       <div className="SavedNews__grid">
-        <NewsCard>
-          <div className="NewsCard__categoria">Природа</div>
-          <div className="NewsCard__icon">
-            <span
-              className={`NewsCard__warning ${
-                isVisible ? "NewsCard__warning_visible" : ""
-              }`}
-            >
-              Убрать из сохранённых
-            </span>
-            <button className="NewsCard__button NewsCard__button_saved-news" />
-          </div>
-        </NewsCard>
-        <NewsCard>
-          <div className="NewsCard__categoria">Природа</div>
-          <div className="NewsCard__icon">
-            <span
-              className={`NewsCard__warning ${
-                isVisible ? "NewsCard__warning_visible" : ""
-              }`}
-            >
-              Убрать из сохранённых
-            </span>
-            <button className="NewsCard__button NewsCard__button_saved-news" />
-          </div>
-        </NewsCard>
-        <NewsCard>
-          <div className="NewsCard__categoria">Природа</div>
-          <div className="NewsCard__icon">
-            <span
-              className={`NewsCard__warning ${
-                isVisible ? "NewsCard__warning_visible" : ""
-              }`}
-            >
-              Убрать из сохранённых
-            </span>
-            <button className="NewsCard__button NewsCard__button_saved-news" />
-          </div>
-        </NewsCard>
+        {cards.map((card) => (
+          <NewsCard
+            key={card._id}
+            url={card.image}
+            date={card.date}
+            title={card.title}
+            description={card.text}
+            sorceName={card.source}
+            card={card}
+          >
+            <div className="NewsCard__categoria">{card.keyword}</div>
+            <div className="NewsCard__icon">
+              <button onClick={() => deleteCard(card)} className="NewsCard__button NewsCard__button_saved-news" />
+              <span className="NewsCard__warning NewsCard__warning_visible">
+                Убрать из сохранённых
+              </span>
+            </div>
+          </NewsCard>
+        ))}
       </div>
     </section>
   );

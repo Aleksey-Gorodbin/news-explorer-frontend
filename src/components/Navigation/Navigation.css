@@ -28,6 +28,10 @@
   margin-right: 32px;
 }
 
+.Navigation__link:hover {
+  opacity: .8;
+}
+
 .Navigation__link_articles {
   color: #000;
 }
@@ -60,6 +64,7 @@
 
 .Navigation__button:hover {
   cursor: pointer;
+  opacity: .8;
 }
 
 .Navigation__icon {

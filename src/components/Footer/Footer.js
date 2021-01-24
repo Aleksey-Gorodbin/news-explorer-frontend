@@ -16,10 +16,10 @@ function Footer() {
         <div className="Footer__links">
           <ul className="Footer__list-links">
             <li className="Footer__list-item">
-              <Link className="Footer__link">Главная</Link>
+              <Link to='/' className="Footer__link">Главная</Link>
             </li>
             <li className="Footer__list-item">
-              <Link className="Footer__link">Яндекс.Практикум</Link>
+              <a href='https://praktikum.yandex.ru' className="Footer__link">Яндекс.Практикум</a>
             </li>
           </ul>
 

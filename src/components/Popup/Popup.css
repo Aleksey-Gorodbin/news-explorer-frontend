@@ -56,16 +56,20 @@
   font-size: 24px;
   line-height: 28px;
   margin: 0;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .Popup__link {
-  text-decoration: none;
   color: #2F71E5;
   font-family: Inter;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+}
+
+.Popup__link:hover {
+  cursor: pointer;
+  opacity: .8;
 }
 
 @media screen and (max-width: 440px) {
