@@ -1,21 +1,21 @@
 export const searchArticles = (word) => {
   function getDateNow() {
-    let dateUtc = new Date();
-    let year = dateUtc.getFullYear();
+    const dateUtc = new Date();
+    const year = dateUtc.getFullYear();
     let month = dateUtc.getMonth() + 1;
     if (month < 10) {
       month = '0' + month;
     }
-    let day = dateUtc.getDate();
-    let dateISO = year + '-' + month + '-' + day;
+    const day = dateUtc.getDate();
+    const dateISO = year + '-' + month + '-' + day;
     return dateISO;
   }
 
   function getDateLast() {
-    let dateUtc = new Date();
+    const dateUtc = new Date();
     let year = dateUtc.getFullYear();
     let month = dateUtc.getMonth() + 1;
-    let day = dateUtc.getDate() - 7;
+    const day = dateUtc.getDate() - 7;
     if (day <= 0) {
       month -= 1;
       if (month <= 0) {
@@ -25,7 +25,7 @@ export const searchArticles = (word) => {
     if (month < 10) {
       month = '0' + month;
     }
-    let dateISO = year + '-' + month + '-' + day;
+    const dateISO = year + '-' + month + '-' + day;
     return dateISO;
   }
   const dateTo = getDateLast();

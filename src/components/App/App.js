@@ -54,12 +54,20 @@ function App() {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const tokenCheck = () => {
-    let jwt = localStorage.getItem("jwt");
+    const jwt = localStorage.getItem("jwt");
     if (jwt) {
       getUserInfo().then((res) => {
         if (res) {
           setLoggedIn(true);
           setIsVisible(false);
+          const cardsStore = JSON.parse(localStorage.getItem("cardsStore"));
+          const word = localStorage.getItem("keyWord");
+          if (cardsStore) {
+            setCards(cardsStore);
+            setKeyWord(word);
+            setSearchCards(true);
+            setResultSearch(true);
+          }
         } else {
           localStorage.removeItem("jwt");
         }
@@ -122,6 +130,8 @@ function App() {
 
   function leaveProfile() {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("cardsStore");
+    localStorage.removeItem("keyWord");
     setLoggedIn(false);
     window.location.reload();
   }
@@ -137,6 +147,7 @@ function App() {
       setErrorSearchInput("Нужно ввести ключевое слово");
       return;
     }
+    localStorage.setItem("keyWord", keyWord);
     setSearchCards(true);
     searchArticles(keyWord)
       .then((res) => {
@@ -146,6 +157,7 @@ function App() {
           return;
         }
         setCards(res);
+        localStorage.setItem("cardsStore", JSON.stringify(res));
         setResultSearch(true);
       })
       .catch((err) => console.log(err));
@@ -165,15 +177,16 @@ function App() {
       selectedCard.url,
       selectedCard.urlToImage
     )
-    .then(() => selectedCard.isVisible = true)
-    .catch((err) => {
-      console.log(err.message);
-    });
-    console.log(selectedCard);
+      .then(() => {
+        const updateCards = cards.map(card => card === selectedCard ? {...selectedCard, isVisible: true} : card);
+        setCards(updateCards);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }
   function handleCardDelete(selectedCard) {
     deleteArticle(selectedCard._id)
-      .then(() => {console.log(selectedCard._id)})
       .then(() => {
         const newCards = savedCards.filter(function (c) {
           return c._id !== selectedCard._id;
@@ -197,12 +210,12 @@ function App() {
 
   React.useEffect(() => {
     getArticles()
-    .then((res) => {
-      setSavedCards(res.data);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
+      .then((res) => {
+        setSavedCards(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }, []);
 
   React.useEffect(() => {

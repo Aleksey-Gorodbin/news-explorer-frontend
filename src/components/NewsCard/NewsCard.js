@@ -19,11 +19,11 @@ function NewsCard({ children, url, date, title, description, sorceName, card }) 
   }
 
   function getDate() {
-    let dateUtc = new Date(date);
-    let year = dateUtc.getFullYear();
-    let month = dateUtc.getMonth();
-    let day = dateUtc.getDate();
-    let dateISO = day + ' ' + months[month] + ', ' + year;
+    const dateUtc = new Date(date);
+    const year = dateUtc.getFullYear();
+    const month = dateUtc.getMonth();
+    const day = dateUtc.getDate();
+    const dateISO = day + ' ' + months[month] + ', ' + year;
     return dateISO;
   }
 

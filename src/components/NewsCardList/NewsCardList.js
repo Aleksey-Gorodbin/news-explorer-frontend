@@ -16,11 +16,7 @@ function NewsCardList({
   const [listCards, setListCards] = React.useState(true);
   const [showButton, setShowButton] = React.useState(true);
 
-  React.useEffect(() => {
-    if(cards.length === 0) {
-      
-    }
-  }, []);
+  const [count, setCount] = React.useState(3);
 
   return resultSearch ? (
     <section className="NewsCardList">
@@ -58,7 +54,7 @@ function NewsCardList({
           </div>
         ) : (
           <div className="NewsCardList__grid">
-            {cards.map((card, index) => (
+            {cards.slice(0, count).map((card, index) => (
               <NewsCard
                 card={card}
                 key={card.title + index}
@@ -92,7 +88,10 @@ function NewsCardList({
             className="NewsCardList__button"
             onClick={() => {
               setListCards(false);
-              setShowButton(false);
+              setCount(count + 3);
+              if (cards.length < count){
+                setShowButton(false);
+              }
             }}
           >
             Показать еще
