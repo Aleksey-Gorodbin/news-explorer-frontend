@@ -1,24 +1,43 @@
 import React from "react";
 
 import "./NewsCard.css";
-import gg from "../../images/main-screen.png";
 
-function NewsCard({ children }) {
+function NewsCard({ children, url, date, title, description, sorceName, card }) {
+  const months = {
+    0: 'января',
+    1: 'февраля',
+    2: 'марта',
+    3: 'апреля',
+    4: 'мая',
+    5: 'июня',
+    6: 'июля',
+    7: 'августа',
+    8: 'сентября',
+    9: 'октября',
+    10: 'ноября',
+    11: 'декабря'
+  }
+
+  function getDate() {
+    const dateUtc = new Date(date);
+    const year = dateUtc.getFullYear();
+    const month = dateUtc.getMonth();
+    const day = dateUtc.getDate();
+    const dateISO = day + ' ' + months[month] + ', ' + year;
+    return dateISO;
+  }
+
+  const formatDate = getDate();
+  
   return (
     <div className="NewsCard">
       {children}
-      <img className="NewsCard__image" src={gg} alt="Изображение статьи" />
+      <img className="NewsCard__image" src={url} alt="Изображение статьи" />
       <div className="NewsCard__info">
-        <p className="NewsCard__date">2 августа, 2019</p>
-        <h3 className="NewsCard__title">Национальное достояние – парки</h3>
-        <p className="NewsCard__description">
-          В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-          складываться система национальных парков – охраняемых территорий, где
-          и сегодня каждый может приобщиться к природе.
-        </p>
-        <a className="NewsCard__link" href="https://itv.te-st.ru/tasks">
-          ССЫЛКА
-        </a>
+        <p className="NewsCard__date">{formatDate}</p>
+        <h3 className="NewsCard__title">{title}</h3>
+        <p className="NewsCard__description">{description}</p>
+        <p className="NewsCard__link">{sorceName}</p>
       </div>
     </div>
   );

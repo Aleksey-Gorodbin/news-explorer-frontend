@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./Navigation.css";
 
-function Navigation({ background, children, isBurger, openPopup }) {
+function Navigation({ background, children, isBurger, openPopup, closePopup }) {
   return (
     <>
     <button className={`Navigation__burger ${
@@ -20,6 +20,7 @@ function Navigation({ background, children, isBurger, openPopup }) {
         className={`Navigation__link ${
           background ? "Navigation__link_border" : "Navigation__link_articles"
         }`}
+        onClick={closePopup}
       >
         Главная
       </Link>

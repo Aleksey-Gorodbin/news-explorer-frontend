@@ -5,68 +5,108 @@ import Preloader from "../Preloader/Preloader";
 import search from "../../images/search.svg";
 import "./NewsCardList.css";
 
-function NewsCardList({ isVisible }) {
-  return true ? (
+function NewsCardList({
+  resultSearch,
+  visiblePreloader,
+  cards,
+  isVisible,
+  saveCard
+}) {
+
+  const [listCards, setListCards] = React.useState(true);
+  const [showButton, setShowButton] = React.useState(true);
+
+  const [count, setCount] = React.useState(3);
+
+  return resultSearch ? (
     <section className="NewsCardList">
       <div className="NewsCardList__container">
         <h2 className="NewsCardList__title">Результаты поиска</h2>
-        <div className="NewsCardList__grid">
-          <NewsCard>
-            <div className="NewsCard__icon">
-              <span
-                className={`NewsCard__warning ${
-                  isVisible ? "NewsCard__warning_visible" : ""
-                }`}
+        {listCards ? (
+          <div className="NewsCardList__grid">
+            {cards.slice(0, 3).map((card, index) => (
+              <NewsCard
+                card={card}
+                key={card.title + index}
+                url={card.urlToImage}
+                date={card.publishedAt}
+                title={card.title}
+                description={card.description}
+                sorceName={card.source.name}
               >
-                Войдите, чтобы сохранять статьи
-              </span>
-              <button
-                className={`NewsCard__button ${
-                  true ? "" : "NewsCard__button_saving"
-                }`}
-              />
-            </div>
-          </NewsCard>
-          <NewsCard>
-            <div className="NewsCard__icon">
-              <span
-                className={`NewsCard__warning ${
-                  isVisible ? "NewsCard__warning_visible" : ""
-                }`}
+                <div className="NewsCard__icon">
+                  <button
+                    className={`NewsCard__button ${
+                      card.isVisible ? "NewsCard__button_saving" : ""
+                    }`}
+                    onClick={() => saveCard(card)}
+                  />
+                  <span
+                    className={`NewsCard__warning ${
+                      isVisible ? "NewsCard__warning_visible" : ""
+                    }`}
+                  >
+                    Войдите, чтобы сохранять статьи
+                  </span>
+                </div>
+              </NewsCard>
+            ))}
+          </div>
+        ) : (
+          <div className="NewsCardList__grid">
+            {cards.slice(0, count).map((card, index) => (
+              <NewsCard
+                card={card}
+                key={card.title + index}
+                url={card.urlToImage}
+                date={card.publishedAt}
+                title={card.title}
+                description={card.description}
+                sorceName={card.source.name}
               >
-                Войдите, чтобы сохранять статьи
-              </span>
-              <button
-                className={`NewsCard__button ${
-                  true ? "" : "NewsCard__button_saving"
-                }`}
-              />
-            </div>
-          </NewsCard>
-          <NewsCard>
-            <div className="NewsCard__icon">
-              <span
-                className={`NewsCard__warning ${
-                  isVisible ? "NewsCard__warning_visible" : ""
-                }`}
-              >
-                Войдите, чтобы сохранять статьи
-              </span>
-              <button
-                className={`NewsCard__button ${
-                  true ? "" : "NewsCard__button_saving"
-                }`}
-              />
-            </div>
-          </NewsCard>
-        </div>
-        <button className="NewsCardList__button">Показать еще</button>
+                <div className="NewsCard__icon">
+                  <button
+                    className={`NewsCard__button ${
+                      card.isVisible ? "NewsCard__button_saving" : ""
+                    }`}
+                    onClick={() => saveCard(card)}
+                  />
+                  <span
+                    className={`NewsCard__warning ${
+                      isVisible ? "NewsCard__warning_visible" : ""
+                    }`}
+                  >
+                    Войдите, чтобы сохранять статьи
+                  </span>
+                </div>
+              </NewsCard>
+            ))}
+          </div>
+        )}
+        {((showButton) && (cards.length > 3)) && (
+          <button
+            className="NewsCardList__button"
+            onClick={() => {
+              setListCards(false);
+              setCount(count + 3);
+              if (cards.length < count){
+                setShowButton(false);
+              }
+            }}
+          >
+            Показать еще
+          </button>
+        )}
       </div>
     </section>
-  ) : false ? (
+  ) : visiblePreloader ? (
     <section className="NewsCardList NewsCardList_empty">
       <div className="NewsCardList__container">
-        <img className="NewsCardList__searching-img" alt="Значок поиска" src={search} />
+        <img
+          className="NewsCardList__searching-img"
+          alt="Значок поиска"
+          src={search}
+        />
         <h3 className="NewsCardList__searching-title">Ничего не найдено</h3>
         <p className="NewsCardList__searching-text">
           К сожалению по вашему запросу ничего не найдено.

@@ -28,6 +28,7 @@
   grid-template-columns: repeat(3, 400px);
   gap: 16px;
   margin: auto;
+  padding-bottom: 64px;
 }
 
 .NewsCardList__button {
@@ -41,7 +42,7 @@
   border: none;
   box-sizing: border-box;
   padding: 0;
-  margin: 64px auto 80px;
+  margin: 0 auto 80px;
 }
 
 .NewsCardList__button:hover {
